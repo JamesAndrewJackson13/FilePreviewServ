@@ -1,2 +1,0 @@
-# FilePreviewServ
-Created with CodeSandbox
