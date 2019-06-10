@@ -1,5 +1,5 @@
-import { album } from "./album.js";
-import { storage } from "./lastSeen.js";
-import { mediaItemCache } from "./mediaItem.js";
+const album = require("./album.js");
+const storage = require("./lastSeen.js");
+const mediaItemCache = require("./mediaItem.js");
 
-export { album, storage, mediaItemCache };
+module.exports = { album, storage, mediaItemCache };

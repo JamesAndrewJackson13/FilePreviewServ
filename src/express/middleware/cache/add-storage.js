@@ -25,4 +25,4 @@ class makeAppStorage {
 
 const createStorage = app => new makeAppStorage(app);
 
-export { createStorage };
+module.exports = createStorage;

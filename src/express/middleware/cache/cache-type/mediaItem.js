@@ -1,4 +1,4 @@
-import * as persist from "node-persist";
+const persist = require("node-persist");
 
 // Set up a cache for media items that expires after 55 minutes.
 // This caches the baseUrls for media items that have been selected
@@ -17,4 +17,4 @@ mediaItemsPersist.init();
 
 const mediaItemCache = ["mediaItems", mediaItemsPersist];
 
-export { mediaItemCache };
+module.exports = mediaItemCache;

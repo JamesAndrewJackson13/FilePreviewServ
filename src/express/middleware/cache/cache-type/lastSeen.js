@@ -1,4 +1,4 @@
-import * as persist from "node-persist";
+const persist = require("node-persist");
 
 // For each user, the app stores the last search parameters or album
 // they loaded into the photo frame. The next time they log in
@@ -13,4 +13,4 @@ lastSeenPersist.init();
 
 const lastSeenCache = ["lastSeen", lastSeenPersist];
 
-export { lastSeenCache };
+module.exports = lastSeenCache;

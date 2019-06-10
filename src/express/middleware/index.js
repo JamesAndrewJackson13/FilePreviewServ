@@ -1,19 +1,31 @@
-import { cacheMiddleware } from "./cache";
-import { authMiddleware } from "./auth";
-import { sessionMiddleware } from "./session";
+// const cacheMiddleware = require("./cache");
+// const authMiddleware = require("./auth");
+// const sessionMiddleware = require("./session");
+const { cacheMiddleware } = require("./cache");
+const { authMiddleware } = require("./auth");
+const { sessionMiddleware } = require("./session");
+const { loggingMiddleware } = require("./logging");
 
 const middlewareList = [
   {
+    order: 0,
+    name: "logging",
+    middleware: loggingMiddleware
+  },
+  {
     order: 200,
-    function: cacheMiddleware
+    name: "cached",
+    middleware: cacheMiddleware
   },
   {
     order: 400,
-    function: sessionMiddleware
+    name: "session",
+    middleware: sessionMiddleware
   },
   {
     order: 600,
-    function: authMiddleware
+    name: "auth",
+    middleware: authMiddleware
   }
 ];
 
@@ -21,10 +33,12 @@ const middlewareSort = (a, b) => a.order - b.order;
 middlewareList.sort(middlewareSort);
 
 const addMiddleware = async app => {
-  for (const middleware of middlewareList) {
+  console.log("ADDING MIDDLE");
+  for (const { name, order, middleware } of middlewareList) {
+    console.log(`       NAME: ${name}\n      ORDER: ${order}\n`);
     await middleware(app);
   }
   return app;
 };
 
-export { addMiddleware };
+module.exports = addMiddleware;

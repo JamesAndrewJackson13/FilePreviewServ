@@ -11,4 +11,4 @@ const sessionInstance = session({
 
 const initSessionMiddleware = app => app.use(sessionInstance);
 
-export { initSessionMiddleware };
+module.exports = initSessionMiddleware;

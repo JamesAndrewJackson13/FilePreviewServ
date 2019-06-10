@@ -1,5 +1,5 @@
-import { initSessionMiddleware } from "./create-session-middleware.js";
-import { addSessionDataToLocal } from "./store-session-data.js";
+const initSessionMiddleware = require("./create-session-middleware.js");
+const addSessionDataToLocal = require("./store-session-data.js");
 
 const sessionMiddleware = async app => {
   initSessionMiddleware(app);
@@ -7,4 +7,4 @@ const sessionMiddleware = async app => {
   return app;
 };
 
-export { sessionMiddleware };
+module.exports.sessionMiddleware = sessionMiddleware;

@@ -1,5 +1,5 @@
-import { createStorage } from "./add-storage.js";
-import { album, storage, mediaItemCache } from "./cache-type";
+const createStorage = require("./add-storage.js");
+const { album, storage, mediaItemCache } = require("./cache-type");
 
 const cacheMiddleware = async app =>
   createStorage(app)
@@ -8,4 +8,4 @@ const cacheMiddleware = async app =>
     .add(mediaItemCache)
     .build();
 
-export { cacheMiddleware };
+module.exports.cacheMiddleware = cacheMiddleware;

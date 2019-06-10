@@ -1,6 +1,6 @@
-import passport from "passport";
-import { Strategy } from "passport-google-oauth20";
-import { config } from "../../../config.js";
+const passport = require("passport");
+const Strategy = require("passport-google-oauth20").Strategy;
+const config = require("../../../config.js");
 
 const handleSerialize = (user, done) => done(null, user);
 const handlePassportUse = (token, rt, profile, done) =>
@@ -13,10 +13,10 @@ const strategyConfig = {
   userProfileURL: config.userProfileURL
 };
 
-const effectiveStratagy = new Strategy(strategyConfig);
+const effectiveStratagy = new Strategy(strategyConfig, handlePassportUse);
 
 passport.serializeUser(handleSerialize);
 passport.deserializeUser(handleSerialize);
-passport.use(effectiveStratagy, handlePassportUse);
+passport.use(effectiveStratagy);
 
-export { passport };
+module.exports = passport;

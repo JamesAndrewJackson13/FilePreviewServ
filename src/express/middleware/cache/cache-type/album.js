@@ -1,4 +1,4 @@
-import * as persist from "node-persist";
+const persist = require("node-persist");
 
 // Temporarily cache a list of the albums owned by the user. This caches
 // the name and base Url of the cover image. This ensures that the app
@@ -17,4 +17,4 @@ albumPersist.init();
 
 const albumCache = ["albums", albumPersist];
 
-export { albumCache };
+module.exports = albumCache;

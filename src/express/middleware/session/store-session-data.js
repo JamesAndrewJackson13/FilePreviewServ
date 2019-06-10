@@ -16,4 +16,4 @@ const sessionDataAdder = (req, res, next) => {
 
 const addSessionDataToLocal = app => app.use(sessionDataAdder);
 
-export { addSessionDataToLocal };
+module.exports = addSessionDataToLocal;
