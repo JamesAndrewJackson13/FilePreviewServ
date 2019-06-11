@@ -1,7 +1,13 @@
 {
   "restartable": "rs",
-  "ignore": [".git", "persist-*/**/**", "sessions/**/**"],
-  "watch": ["src/*"],
+  "ignore": [
+    ".git",
+    "persist-*/**/**",
+    "sessions/**/**",
+    "dist/**/**",
+    "production/**/**"
+  ],
+  "watch": ["src/**/*"],
   "env": {
     "NODE_ENV": "development"
   },

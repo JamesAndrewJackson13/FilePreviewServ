@@ -12,4 +12,14 @@ const config = {
   albumPageSize: 50
 };
 
-module.exports = config;
+const firebaseConfig = {
+  apiKey: "AIzaSyDZkgQOsci95AU8ED555we6Jvmt97JuwSE",
+  authDomain: "file-preview-creator.firebaseapp.com",
+  databaseURL: "https://file-preview-creator.firebaseio.com",
+  projectId: "file-preview-creator",
+  storageBucket: "file-preview-creator.appspot.com",
+  messagingSenderId: "512751646365",
+  appId: "1:512751646365:web:ea38106612ceec93"
+};
+
+module.exports = { config, firebaseConfig };

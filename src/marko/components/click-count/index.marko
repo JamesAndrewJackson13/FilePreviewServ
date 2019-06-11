@@ -1,0 +1,13 @@
+
+class {
+  onCreate(input, out) {
+    this.state = { count: input.count };
+  }
+  increment() {
+    console.log('count: ' + this.state.count)
+    this.state.count++;
+  }
+}
+
+<div.count>${state.count}</div>
+<button.example-button on-click('increment')>Click me!</button>

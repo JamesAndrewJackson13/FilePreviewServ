@@ -1,6 +1,6 @@
 const passport = require("passport");
 const Strategy = require("passport-google-oauth20").Strategy;
-const config = require("../../../config.js");
+const config = require("@/config.js");
 
 const handleSerialize = (user, done) => done(null, user);
 const handlePassportUse = (token, rt, profile, done) =>

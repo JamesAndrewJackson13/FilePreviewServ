@@ -1,16 +1,18 @@
 // import baseRoute from "./base";
-const baseRoute = require("./base");
+// const baseRoute = require("./base");
 const request = require("request");
-const { logger } = require("../middleware/logging");
-const config = require("../../config.js");
+const serveStatic = require("serve-static");
+const authRoute = require("./auth");
+const { logger } = require("@/express/middleware/logging");
+const config = require("@/config.js");
+const { routeMarkoPages } = require("@/marko");
 
 const addRoutes = app => {
   console.log("ADDING ROUTES");
-  app.use("/", baseRoute);
-
-  app.get("/show-content/", (req, res) => {
-    request("https://photoslibrary.googleapis.com/v1/mediaItems");
-  });
+  app.use("/static", serveStatic("dist/client"));
+  // app.use("/", baseRoute);
+  app.use("/", authRoute);
+  routeMarkoPages(app);
 
   // Handles form submissions from the search page.
   // The user has made a selection and wants to load photos into the photo frame
