@@ -2,7 +2,7 @@
   "name": "file-preview-creator",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "src/express/index.js",
   "dependencies": {
     "express": "4.17.1",
     "express-session": "1.16.1",
@@ -44,12 +44,6 @@
     "webpack-dev-server": "^3.3.0"
   },
   "keywords": [],
-  "alias": {
-    "config_file": "./src/config.js"
-  },
-  "nodemonConfig": {
-    "ignore": ["./sessions/*", "./persist-*/*"]
-  },
   "scripts": {
     "build": "webpack",
     "build:production": "NODE_ENV=production npm run build",
