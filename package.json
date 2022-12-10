@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/express/index.js",
   "dependencies": {
-    "express": "4.17.1",
+    "express": "4.17.3",
     "express-session": "1.16.1",
     "express-winston": "3.1.0",
     "material-components-web": "3.0.0-0",
